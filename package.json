@@ -1,0 +1,19 @@
+{
+  "name": "ats",
+  "version": "1.0.0",
+  "description": "ATS ecommerce website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jegatheesprana/ats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jegatheesprana/ats/issues"
+  },
+  "homepage": "https://github.com/jegatheesprana/ats#readme"
+}
