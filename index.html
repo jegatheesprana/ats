@@ -28,6 +28,11 @@
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+         .lan-select {
+            margin: 12px auto;
+         }
+      </style>
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -53,13 +58,9 @@
                      <div class="menu-area">
                         <div class="limit-box">
                            <nav class="main-menu">
-                              <ul class="menu-area-main">
-                                 <li class="active"> <a href="#">Home</a> </li>
-                                 <li> <a href="#about">About</a> </li>
-                                 <li><a href="#plant">Products</a></li>
-                                 <li><a href="#gallery">Gallery</a></li>
-                                 <li><a href="#contact">Contact Us</a></li>
-                                 <li class="last"><a href="#"><img src="images/search_icon.png" alt="icon"/></a></li>
+                              <ul class="menu-area-main" id="menu-cont">
+                                 <!-- <li class="active"> <a href="#">Home</a> </li> -->
+                                 
                               </ul>
                            </nav>
                         </div>
@@ -157,49 +158,11 @@
             </div>
          </div>
          <div class="container">
-            <div class="row">
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="plants-box">
-                     <figure><img src="images/veg1.jpg" alt="img"/></figure>
-                     <h3> Potatos</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="plants-box">
-                     <figure><img src="images/veg2.jpg" alt="img"/></figure>
-                     <h3> Tomatos</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="plants-box">
-                     <figure><img src="images/veg3.jpg" alt="img"/></figure>
-                     <h3> Floral Vibrant</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="plants-box">
-                     <figure><img src="images/veg4.jpg" alt="img"/></figure>
-                     <h3> Floral Vibrant</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="plants-box">
-                     <figure><img src="images/veg1.jpg" alt="img"/></figure>
-                     <h3> Floral Vibrant</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="plants-box">
-                     <figure><img src="images/veg2.jpg" alt="img"/></figure>
-                     <h3> Floral Vibrant</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
-                  </div>
-               </div>
+            <div class="row" id="products">
+               
+
+
+
             </div>
          </div>
       </div>
@@ -430,6 +393,115 @@
             </div>
          </div>
       </footer>
+       
+      <script>
+         function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+         }
+
+         function setCookie(name,value,days=2) {
+            var expires = "";
+            if (days) {
+               var date = new Date();
+               date.setTime(date.getTime() + (days*24*60*60*1000));
+               expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+         }
+
+         if (!getCookie('language')){
+            setTimeout(()=>{
+               document.getElementById('langButton').click();
+            }, 5000)
+         }
+         let language = getCookie('language') || 'english';
+         const products = [
+            {name: {english: 'Potato', tamil: 'உருளைக்கிழங்கு'}, img: 'images/veg1.jpg', description: {english: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using', tamil: 'காய்கறிகள், பழங்கள் என்று நல்ல ஊட்டச்சத்துக்கள் நிறைந்த உணவுப் பொருட்களை அதிகம் உட்கொள்ள வேண்டும். குறிப்பாக அன்றாட சமையலில் பயன்படுத்தும் காய்கறிகளில் அத்தியாவசிய சத்துக்களான பொட்டாசியம், நார்ச்சத்து, போலேட் மற்றும் வைட்டமின்களில் ஏ, ஈ மற்றும் சி போன்றவை அதிக அளவில் நிறைந்துள்ளன.'}},
+            {name: {english: 'Tomato', tamil: 'தக்காளி'}, img: 'images/veg2.jpg', description: {english: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using', tamil: 'காய்கறிகள், பழங்கள் என்று நல்ல ஊட்டச்சத்துக்கள் நிறைந்த உணவுப் பொருட்களை அதிகம் உட்கொள்ள வேண்டும். குறிப்பாக அன்றாட சமையலில் பயன்படுத்தும் காய்கறிகளில் அத்தியாவசிய சத்துக்களான பொட்டாசியம், நார்ச்சத்து, போலேட் மற்றும் வைட்டமின்களில் ஏ, ஈ மற்றும் சி போன்றவை அதிக அளவில் நிறைந்துள்ளன.'}},
+            {name: {english: 'Lettuce', tamil: 'கீரை'}, img: 'images/veg3.jpg', description: {english: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using', tamil: 'காய்கறிகள், பழங்கள் என்று நல்ல ஊட்டச்சத்துக்கள் நிறைந்த உணவுப் பொருட்களை அதிகம் உட்கொள்ள வேண்டும். குறிப்பாக அன்றாட சமையலில் பயன்படுத்தும் காய்கறிகளில் அத்தியாவசிய சத்துக்களான பொட்டாசியம், நார்ச்சத்து, போலேட் மற்றும் வைட்டமின்களில் ஏ, ஈ மற்றும் சி போன்றவை அதிக அளவில் நிறைந்துள்ளன.'}},
+            {name: {english: 'Moringa', tamil: 'முருங்கை'}, img: 'images/veg4.jpg', description: {english: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using', tamil: 'காய்கறிகள், பழங்கள் என்று நல்ல ஊட்டச்சத்துக்கள் நிறைந்த உணவுப் பொருட்களை அதிகம் உட்கொள்ள வேண்டும். குறிப்பாக அன்றாட சமையலில் பயன்படுத்தும் காய்கறிகளில் அத்தியாவசிய சத்துக்களான பொட்டாசியம், நார்ச்சத்து, போலேட் மற்றும் வைட்டமின்களில் ஏ, ஈ மற்றும் சி போன்றவை அதிக அளவில் நிறைந்துள்ளன.'}},
+         ];
+         const menus = [
+            {name: {english:'Home', tamil: 'முகப்பு'}, href:"#"},
+            {name: {english:'About', tamil: 'பார்வை'}, href:"#about"},
+            {name: {english:'Products', tamil: 'பொருட்கள்'}, href:"#plant"},
+            {name: {english:'Contact Us', tamil: 'தொடர்பு'}, href:"#contact"},
+         ];
+         const langMenu = {
+            name: { english: 'Language', tamil: 'மொழி'},
+            values: ['English', 'தமிழ்'], 
+            modal: {
+               title: { english: 'Language', tamil: 'மொழி'},
+               helpText: { english: 'Select your prefered language', tamil: 'உங்கள் விருப்பமான மொழியைத் தேர்ந்தெடுக்கவும்'},
+            }
+         }
+
+         let html ='';
+         products.forEach(product=>{
+            html += `
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+               <div class="plants-box">
+                  <figure><img src="${product.img}" alt="img"/></figure>
+                  <h3>${product.name[language]}</h3>
+                  <p>${product.description[language]}</p>
+               </div>
+            </div>
+            `;
+         });
+         document.getElementById('products').innerHTML = html;
+
+         html = '';
+         menus.forEach(menu => {
+            html += `
+               <li> <a href="${menu.href}">${menu.name[language]}</a> </li>
+            `;
+         });
+         html += `
+            <li><a id="langButton" data-toggle="modal" data-target="#exampleModalCenter" href="#">${langMenu.name[language]}</a></li>
+            <li class="last"><a href="#"><img src="images/search_icon.png" alt="icon"/></a></li>
+         `;
+         document.getElementById('menu-cont').innerHTML = html;
+
+         const changeLang = e => {
+            const value = document.getElementById('langSelect').value;
+            console.log(value)
+            setCookie('language', value);
+            location.reload();
+         }
+         let div = document.createElement('DIV');
+         div.innerHTML = `
+         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLongTitle">${langMenu.modal.title[language]}</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body" style="text-align: center;">
+                     ${langMenu.modal.helpText[language]}
+                     <div>
+                        <select style="display: none;" class="form-control lan-select" id="langSelect" onchange="changeLang()">
+                           <option value="tamil">தமிழ்</option>
+                           <option value="english">English</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="modal-footer" style="display: none;">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+               </div>
+               </div>
+            </div>
+         `
+         document.body.append(div)
+
+         /////////////////////////////////////////////
+      </script>
       <!-- end footer -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
@@ -457,6 +529,8 @@
          
          $(this).removeClass('transition');
          });
+
+
          });
          
       </script> 
