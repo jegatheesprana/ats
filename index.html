@@ -118,25 +118,6 @@
                      </div>
                   </div>
                </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <div class="row marginii">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                           <div class="carousel-caption ">
-                              <h1>Welcome To The <strong class="color">Nutrients Plants</strong></h1>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                              <a class="btn btn-lg btn-primary" href="#" role="button">About</a>
-                              <a class="btn btn-lg btn-primary" href="#" role="button">Contact US</a>
-                           </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                           <div class="img-box">
-                              <figure><img src="images/gyufyufyu.png" alt="img"/></figure>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
             </div>
             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
             <i class='fa fa-angle-left'></i></a>
@@ -158,12 +139,13 @@
             </div>
          </div>
          <div class="container">
-            <div class="row" id="products">
+            <div class="row" id="products" style="height: 400px;overflow: hidden;">
                
 
-
-
             </div>
+            <button class="btn btn-primary" type="button" id="products-btn" onclick={expand()}>
+               show more
+             </button>
          </div>
       </div>
       <!-- end plant -->
@@ -411,6 +393,16 @@
             document.cookie = name + "=" + (value || "")  + expires + "; path=/";
          }
 
+         function expand () {
+            if ( document.getElementById(`products`).style.height!=="unset" ) {
+               document.getElementById(`products`).style.height="unset";
+               document.getElementById(`products-btn`).innerText = 'show less';
+            } else {
+               document.getElementById(`products`).style.height="400px";
+               document.getElementById(`products-btn`).innerText = 'show more';
+            }
+         }
+
          if (!getCookie('language')){
             setTimeout(()=>{
                document.getElementById('langButton').click();
@@ -445,7 +437,11 @@
                <div class="plants-box">
                   <figure><img src="${product.img}" alt="img"/></figure>
                   <h3>${product.name[language]}</h3>
-                  <p>${product.description[language]}</p>
+                  <p>
+                  ${product.description[language]}</p>
+                  <div class="card-body">
+                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
                </div>
             </div>
             `;
